@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BookController!{% endblock %}
+
+{% block body %}
+    <h1>mes livres</h1>
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">titre</th>
+      <th scope="col">nom auteur</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  {% for book in books %}
+    <tr>
+      <th scope="row">{{book.id}}</th>
+      <td>{{book.title}}</td>
+      <td>{{book.author.firstName}} - {{book.author.lastName}}</td>
+      <td><a class="btn btn-primary" href="{{path('app_book_show',{'id':book.id})}}">Voir</a></td>
+    </tr>
+    
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
