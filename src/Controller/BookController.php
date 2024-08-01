@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class BookController extends AbstractController
 {
-    #[Route('/book', name: 'app_book')]
+    #[Route('/book', name: 'app_book' , methods:['GET'])]
     public function index(BookRepository $bookRepo): Response
     {
         return $this->render('book/index.html.twig', [
@@ -18,7 +18,7 @@ class BookController extends AbstractController
         ]);
     }
 
-    #[Route('/book/{id}', name: 'app_book_show')]
+    #[Route('/book/{id}', name: 'app_book_show' , methods:['GET'])]
     public function show(int $id ,BookRepository $bookRepo): Response
     {
 
